@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Informasi Tempat Duduk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Selamat Datang 🤍</h1>
+<p>Terima kasih telah hadir</p>
+
+<div id="result"></div>
+
+<script src="data.js"></script>
+<script>
+const params = new URLSearchParams(window.location.search);
+const code = params.get("id");
+
+const resultDiv = document.getElementById("result");
+
+if (guests[code]) {
+  resultDiv.innerHTML = `
+    <h2>${guests[code].name}</h2>
+    <p><strong>Nomor Meja:</strong> ${guests[code].table}</p>
+    <p><strong>Area:</strong> ${guests[code].area}</p>
+  `;
+} else {
+  resultDiv.innerHTML = "<p>Data tamu tidak ditemukan.</p>";
+}
+</script>
+
+</body>
+</html>
