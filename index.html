@@ -8,25 +8,48 @@
 <body>
 
 <h1>Selamat Datang 🤍</h1>
-<p>Terima kasih telah hadir</p>
+<p>Silakan masukkan nama Anda</p>
 
-<div id="result"></div>
+<input 
+  type="text" 
+  id="searchName" 
+  placeholder="Contoh: Bapak Andi"
+  style="padding:10px; width:80%; max-width:400px;"
+>
+
+<br><br>
+
+<button onclick="searchGuest()" style="padding:10px 20px;">
+  Cari Tempat Duduk
+</button>
+
+<div id="result" style="margin-top:30px;"></div>
 
 <script src="data.js"></script>
 <script>
-const params = new URLSearchParams(window.location.search);
-const code = params.get("id");
+function searchGuest() {
+  const input = document.getElementById("searchName").value.toLowerCase();
+  const resultDiv = document.getElementById("result");
+  resultDiv.innerHTML = "";
 
-const resultDiv = document.getElementById("result");
+  if (!input) {
+    resultDiv.innerHTML = "<p>Silakan masukkan nama.</p>";
+    return;
+  }
 
-if (guests[code]) {
-  resultDiv.innerHTML = `
-    <h2>${guests[code].name}</h2>
-    <p><strong>Nomor Meja:</strong> ${guests[code].table}</p>
-    <p><strong>Area:</strong> ${guests[code].area}</p>
-  `;
-} else {
-  resultDiv.innerHTML = "<p>Data tamu tidak ditemukan.</p>";
+  const found = guests.find(g =>
+    g.name.toLowerCase().includes(input)
+  );
+
+  if (found) {
+    resultDiv.innerHTML = `
+      <h2>${found.name}</h2>
+      <p><strong>Meja:</strong> ${found.table}</p>
+      <p><strong>Area:</strong> ${found.area}</p>
+    `;
+  } else {
+    resultDiv.innerHTML = "<p>Nama tidak ditemukan. Silakan hubungi petugas.</p>";
+  }
 }
 </script>
 
