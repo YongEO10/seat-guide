@@ -1,17 +1,12 @@
 const guests = [
   {
-    name: "Bapak Andi Wijaya",
-    table: "Meja 5",
-    area: "VIP"
+    name: "andi wijaya",
+    table: "meja 5",
+    area: "vip"
   },
   {
-    name: "Ibu Maria",
-    table: "Meja 12",
-    area: "Reguler"
-  },
-  {
-    name: "Keluarga Budi Santoso",
-    table: "Meja 3",
-    area: "Keluarga"
+    name: "budi santoso",
+    table: "meja 3",
+    area: "reguler"
   }
 ];
