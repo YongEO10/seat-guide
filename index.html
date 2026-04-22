@@ -13,29 +13,21 @@
 <input 
   type="text" 
   id="searchName" 
-  placeholder="Contoh: Bapak Andi"
-  style="padding:10px; width:80%; max-width:400px;"
+  placeholder="Contoh: Andi"
+  style="padding:12px; width:80%; max-width:400px;"
 >
 
 <br><br>
 
-<button onclick="searchGuest()" style="padding:10px 20px;">
-  Cari Tempat Duduk
-</button>
+<button onclick="searchGuest()">Cari Tempat Duduk</button>
 
 <div id="result" style="margin-top:30px;"></div>
 
 <script src="data.js"></script>
 <script>
 function searchGuest() {
-  const input = document.getElementById("searchName").value.toLowerCase();
+  const input = document.getElementById("searchName").value.toLowerCase().trim();
   const resultDiv = document.getElementById("result");
-  resultDiv.innerHTML = "";
-
-  if (!input) {
-    resultDiv.innerHTML = "<p>Silakan masukkan nama.</p>";
-    return;
-  }
 
   const found = guests.find(g =>
     g.name.toLowerCase().includes(input)
@@ -44,11 +36,11 @@ function searchGuest() {
   if (found) {
     resultDiv.innerHTML = `
       <h2>${found.name}</h2>
-      <p><strong>Meja:</strong> ${found.table}</p>
-      <p><strong>Area:</strong> ${found.area}</p>
+      <p>Meja: ${found.table}</p>
+      <p>Jumlah Tamu: ${found.jumlah}</p>
     `;
   } else {
-    resultDiv.innerHTML = "<p>Nama tidak ditemukan. Silakan hubungi petugas.</p>";
+    resultDiv.innerHTML = "Data tamu tidak ditemukan.";
   }
 }
 </script>
