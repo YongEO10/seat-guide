@@ -74,7 +74,7 @@ const guests = [
   { name: "Albert & Rosa", table: "14", jumlah: "3" },
   { name: "Berry & Meisya", table: "14", jumlah: "2" },
   { name: "Jonathan & Wenny", table: "14", jumlah: "2" },
-  { name: "Anna", table: "14", jumlah: "1" },
+  { name: "Anna-core", table: "14", jumlah: "1" },
   { name: "Timothy & Phoebe", table: "14", jumlah: "2" },
   { name: "Priyo Bintoro/Enny Budiwati", table: "15", jumlah: "2" },
   { name: "Erwin", table: "15", jumlah: "1" },
